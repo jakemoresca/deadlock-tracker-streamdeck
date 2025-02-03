@@ -32,9 +32,16 @@ jobs:
     - name: Pack
       uses: neilenns/streamdeck-cli-pack@v1
 
-    - name: Save packaged plugin
-      uses: actions/upload-artifact@v4
+    - name: Release
+      uses: softprops/action-gh-release@v2
+      if: startsWith(github.ref, 'refs/tags/')
       with:
-        name: Deadlock Tracker
-        path: |
+        files: |
           com.ryder.deadlocktracker.streamDeckPlugin
+
+    #- name: Save packaged plugin
+    #  uses: actions/upload-artifact@v4
+    #  with:
+    #    name: Deadlock Tracker
+    #    path: |
+    #      com.ryder.deadlocktracker.streamDeckPlugin
