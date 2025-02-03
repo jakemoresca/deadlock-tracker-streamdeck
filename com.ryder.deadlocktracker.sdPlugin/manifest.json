@@ -1,0 +1,47 @@
+{
+	"Name": "Deadlock Tracker",
+	"Version": "0.1.0.0",
+	"Author": "jakemoresca",
+	"Actions": [
+		{
+			"Name": "Leaderboard Stats",
+			"UUID": "com.ryder.deadlocktracker.leaderboardstats",
+			"Icon": "imgs/actions/counter/icon",
+			"Tooltip": "Displays the player's leaderboard stats",
+			"PropertyInspectorPath": "ui/leaderboard-stats.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/counter/key",
+					"TitleAlignment": "middle"
+				}
+			]
+		}
+	],
+	"Category": "Deadlock Tracker",
+	"CategoryIcon": "imgs/plugin/category-icon",
+	"CodePath": "bin/plugin.js",
+	"Description": "Deadlock stats tracker powered by Deadlock Api (https://deadlock-api.com/)",
+	"Icon": "imgs/plugin/marketplace",
+	"SDKVersion": 2,
+	"Software": {
+		"MinimumVersion": "6.4"
+	},
+	"OS": [
+		{
+			"Platform": "mac",
+			"MinimumVersion": "12"
+		},
+		{
+			"Platform": "windows",
+			"MinimumVersion": "10"
+		}
+	],
+	"Nodejs": {
+		"Version": "20",
+		"Debug": "enabled"
+	},
+	"UUID": "com.ryder.deadlocktracker"
+}

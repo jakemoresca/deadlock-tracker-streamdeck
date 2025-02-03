@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <title>Leaderboard Stats Settings</title>
+    <meta charset="utf-8" />
+    <script src="https://sdpi-components.dev/releases/v3/sdpi-components.js"></script>
+</head>
+
+<body>
+    <!--
+        Learn more about property inspector components at https://sdpi-components.dev/docs/components
+        
+    -->
+    <sdpi-item label="Steam Account ID">
+        <sdpi-textfield
+            setting="steamAccountId"
+            required>
+        </sdpi-textfield>
+    </sdpi-item>
+
+    <sdpi-item label="Region">
+        <sdpi-select setting="region" required>
+            <option value="Asia">Asia</option>
+            <option value="Europe">Europe</option>
+            <option value="NAmerica">North America</option>
+            <option value="SAmerica">South America</option>
+            <option value="Oceania">Oceania</option>
+        </sdpi-select>
+    </sdpi-item>
+
+    <sdpi-item label="Leaderboard Stat">
+        <sdpi-select setting="leaderboardStat" required>
+            <option value="total_win">Total Wins</option>
+            <option value="total_kills">Total Kills</option>
+            <option value="total_losses">Total Losses</option>
+            <option value="total_winrate">Total Winrate</option>
+            <option value="wins_losses_today">Win-Loss Today</option>
+            <option value="leaderboard_rank">Current Rank</option>
+            <option value="leaderboard_place">Leaderboard Place</option>
+            <option value="most_played_hero">Most Played Hero</option>
+        </sdpi-select>
+    </sdpi-item>
+</body>
+
+</html>
