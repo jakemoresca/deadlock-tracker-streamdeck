@@ -1,6 +1,8 @@
 import streamDeck, { action, SingletonAction, KeyAction, WillAppearEvent, KeyUpEvent, WillDisappearEvent } from "@elgato/streamdeck";
 
-const FIFTEEN_MINUTES = 15 * 60 * 1000;
+const ONE_MINUTE = 60 * 1000;
+const FIVE_MINUTES = 5 * ONE_MINUTE;
+const FIFTEEN_MINUTES = 15 * ONE_MINUTE;
 
 @action({ UUID: "com.ryder.deadlocktracker.leaderboardstats" })
 export class LeaderboardStats extends SingletonAction<LeaderboardStatsSettings> {
@@ -15,17 +17,14 @@ export class LeaderboardStats extends SingletonAction<LeaderboardStatsSettings> 
 		await this.getLeaderboardStats(ev.action);
 
 		if (!this.timer) {
-			this.timer = setInterval(() => {
+			this.timer = setInterval(async () => {
 				for (const action of this.actions) {
 					if (action.isKey()) {
-						action.getSettings().then((settings) => {
-							if (settings.autoUpdate) {
-								this.getLeaderboardStats(action);
-							}
-						});
+						streamDeck.logger.info('Refreshing stats');
+						await this.getLeaderboardStats(action);
 					}
 				}
-			}, FIFTEEN_MINUTES);
+			}, FIVE_MINUTES);
 		}
 	}
 
